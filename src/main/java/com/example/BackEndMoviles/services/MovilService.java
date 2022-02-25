@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.BackEndMoviles.control.ObjectMother;
 import com.example.BackEndMoviles.modelo.Movil;
+import com.example.BackEndMoviles.modelo.MovilRepository;
 
 
 
@@ -18,14 +20,19 @@ import com.example.BackEndMoviles.modelo.Movil;
 public class MovilService {
 	
 	Set<Movil> movilesLista;
-	ObjectMother objectMother = new ObjectMother();
+	
+//	ObjectMother objectMother = new ObjectMother();
 	
 	public MovilService(){
 		
 		movilesLista = new HashSet<Movil>();
-		for (int i = 0; i < 50; i++) {
-			movilesLista.add(objectMother.generarMovil(i));
-		}
+//		for (int i = 0; i < 50; i++) {
+//			movilesLista.add(objectMother.generarMovil(i));
+//		}
+	}
+	
+	public void rellenarMoviles(Iterable<Movil> findAll) {
+		findAll.forEach((a)->{movilesLista.add(a);});
 	}
 	
 	public HashSet<Movil> getMoviles(){

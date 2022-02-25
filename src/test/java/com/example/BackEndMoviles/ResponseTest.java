@@ -1,4 +1,4 @@
-package com.example.ProyectoMovilesVir04;
+package com.example.BackEndMoviles;
 
 import static org.junit.jupiter.api.Assertions.*;
 

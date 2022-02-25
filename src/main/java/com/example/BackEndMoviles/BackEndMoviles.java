@@ -15,15 +15,26 @@ import org.springframework.web.filter.CorsFilter;
 import com.example.BackEndMoviles.control.ObjectMother;
 import com.example.BackEndMoviles.modelo.Movil;
 import com.example.BackEndMoviles.modelo.MovilRepository;
+import com.example.BackEndMoviles.services.MovilService;
 
 @SpringBootApplication
 public class BackEndMoviles {
 	
+	@Autowired
+	MovilRepository movilRepository;
 	
+	@Autowired
+	MovilService movilService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackEndMoviles.class, args);
 		
+	}
+	
+	@Bean
+	public void moviles() {
+		Iterable<Movil> findAll = movilRepository.findAll();
+		movilService.rellenarMoviles(findAll);
 	}
 
 }
