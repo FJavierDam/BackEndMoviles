@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.BackEndMoviles.modelo.Movil;
+import com.example.BackEndMoviles.modelo.MovilRepository;
 import com.example.BackEndMoviles.modelo.Response;
 import com.example.BackEndMoviles.services.MovilService;
 
@@ -23,11 +24,9 @@ import com.example.BackEndMoviles.services.MovilService;
 @RestController
 @RequestMapping("moviles")
 public class MovilController {
-
 	
 	@Autowired
 	private MovilService movilService;
-	
 
 	@GetMapping("homeDos")
 	public ResponseEntity<Response> getMoviles(){
