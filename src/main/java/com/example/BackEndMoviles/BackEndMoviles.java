@@ -14,7 +14,7 @@ import org.springframework.web.filter.CorsFilter;
 
 import com.example.BackEndMoviles.control.ObjectMother;
 import com.example.BackEndMoviles.modelo.Movil;
-import com.example.BackEndMoviles.modelo.MovilRepository;
+import com.example.BackEndMoviles.repositories.MovilRepository;
 import com.example.BackEndMoviles.services.MovilService;
 
 @SpringBootApplication
