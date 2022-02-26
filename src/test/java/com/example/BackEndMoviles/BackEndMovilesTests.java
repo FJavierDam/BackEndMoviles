@@ -21,11 +21,11 @@ class BackEndMovilesTests {
 
 //	@Autowired
 //	MovilRepository movilRepository;
-	@Autowired
-	AppUserRepository appRepository;
-	
-	@Autowired
-	AppUserService appUserService;
+//	@Autowired
+//	AppUserRepository appRepository;
+//	
+//	@Autowired
+//	AppUserService appUserService;
 
 	@Test
 	void contextLoads() {
@@ -36,23 +36,22 @@ class BackEndMovilesTests {
 //		for (int i = 0; i < 50; i++) {
 //			listaMoviles.add(objectMother.generarMovil(i));
 //		}
-//
-////		listaMoviles.forEach((a) -> {
-////			System.out.println(a.toString());
-////		});
+
+//		listaMoviles.forEach((a) -> {
+//			System.out.println(a.toString());
+//		});
 //		movilRepository.saveAll(listaMoviles);
 //		
-		Set<AppUser> users = new HashSet<>();
-		AppUser user1 = new AppUser("vir","123");
-		AppUser user2 = new AppUser("francis","321");
-		users.add(user1);
-		users.add(user2);
-	    appUserService.addRoleToUser("vir",ApplicationUserRol.ADMIN.name());
-	    appUserService.addRoleToUser("francis", ApplicationUserRol.ADMIN.name());
-	    
-	    users.forEach((a) -> {
-	    	appRepository.save(a);
-		});
+//		Set<AppUser> users = new HashSet<>();
+//		AppUser user1 = new AppUser("vir","123");
+//		AppUser user2 = new AppUser("francis","321");
+//		users.add(user1);
+//		users.add(user2);
+//		appUserService.rellenarUsuarios(users);
+//	    appUserService.addRoleToUser("vir",ApplicationUserRol.ADMIN.name());
+//	    appUserService.addRoleToUser("francis", ApplicationUserRol.GUEST.name());
+//	    
+//	    appRepository.saveAll(users);
 	    
 		
 	}
