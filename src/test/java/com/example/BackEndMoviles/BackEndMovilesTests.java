@@ -8,15 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.BackEndMoviles.control.ObjectMother;
+import com.example.BackEndMoviles.domain.AppUser;
 import com.example.BackEndMoviles.modelo.Movil;
-import com.example.BackEndMoviles.modelo.MovilRepository;
+import com.example.BackEndMoviles.repositories.AppUserRepository;
+import com.example.BackEndMoviles.repositories.MovilRepository;
+import com.example.BackEndMoviles.security.ApplicationUserRol;
+import com.example.BackEndMoviles.services.AppUserService;
 import com.example.BackEndMoviles.services.MovilService;
 
 @SpringBootTest
 class BackEndMovilesTests {
 
+//	@Autowired
+//	MovilRepository movilRepository;
 	@Autowired
-	MovilRepository movilRepository;
+	AppUserRepository appRepository;
+	
+	@Autowired
+	AppUserService appUserService;
 
 	@Test
 	void contextLoads() {
@@ -28,10 +37,24 @@ class BackEndMovilesTests {
 //			listaMoviles.add(objectMother.generarMovil(i));
 //		}
 //
-//		listaMoviles.forEach((a) -> {
-//			System.out.println(a.toString());
-//		});
+////		listaMoviles.forEach((a) -> {
+////			System.out.println(a.toString());
+////		});
 //		movilRepository.saveAll(listaMoviles);
+//		
+		Set<AppUser> users = new HashSet<>();
+		AppUser user1 = new AppUser("vir","123");
+		AppUser user2 = new AppUser("francis","321");
+		users.add(user1);
+		users.add(user2);
+	    appUserService.addRoleToUser("vir",ApplicationUserRol.ADMIN.name());
+	    appUserService.addRoleToUser("francis", ApplicationUserRol.ADMIN.name());
+	    
+	    users.forEach((a) -> {
+	    	appRepository.save(a);
+		});
+	    
+		
 	}
 
 }

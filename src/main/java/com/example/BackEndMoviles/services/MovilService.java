@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.BackEndMoviles.control.ObjectMother;
 import com.example.BackEndMoviles.modelo.Movil;
-import com.example.BackEndMoviles.modelo.MovilRepository;
 
 
 
