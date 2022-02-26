@@ -13,8 +13,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 import com.example.BackEndMoviles.control.ObjectMother;
+import com.example.BackEndMoviles.domain.AppUser;
 import com.example.BackEndMoviles.modelo.Movil;
+import com.example.BackEndMoviles.repositories.AppUserRepository;
 import com.example.BackEndMoviles.repositories.MovilRepository;
+import com.example.BackEndMoviles.services.AppUserService;
 import com.example.BackEndMoviles.services.MovilService;
 
 @SpringBootApplication
@@ -22,7 +25,10 @@ public class BackEndMoviles {
 	
 	@Autowired
 	MovilRepository movilRepository;
-	
+	@Autowired
+	AppUserRepository appUserRepository;
+	@Autowired
+	AppUserService appUserService;
 	@Autowired
 	MovilService movilService;
 
@@ -36,5 +42,11 @@ public class BackEndMoviles {
 		Iterable<Movil> findAll = movilRepository.findAll();
 		movilService.rellenarMoviles(findAll);
 	}
+	
+//	@Bean
+//	public void users() {
+//		Iterable<AppUser> findAll = appUserRepository.findAll();
+//		appUserService.rellenarUsuarios(findAll);
+//	}
 
 }

@@ -94,6 +94,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                         .roles(appuser.getRoles())
                         .build()
         ).collect(Collectors.toList());
+        collect.forEach((a)->System.err.println(a.toString()));
         System.err.println();
         return new InMemoryUserDetailsManager(collect);
     }

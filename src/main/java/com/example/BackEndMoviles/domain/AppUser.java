@@ -3,14 +3,19 @@ package com.example.BackEndMoviles.domain;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
 
@@ -26,7 +31,7 @@ public class AppUser {
 //	
 //	@Embedded
 //    @Column(name="roles")
-	@Transient
+	@ElementCollection(fetch = FetchType.EAGER)
     private Collection<String> roles=new ArrayList<>();
     
     
