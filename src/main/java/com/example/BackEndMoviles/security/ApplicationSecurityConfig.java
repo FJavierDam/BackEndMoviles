@@ -58,8 +58,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     	http.cors(Customizer.withDefaults()).csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.authorizeRequests().antMatchers("/login").permitAll();
+        http.authorizeRequests().antMatchers(GET,"/moviles/**").hasRole(ApplicationUserRol.ADMIN.name());
         http.authorizeRequests().antMatchers(GET,"/moviles/homeDos").hasRole(ApplicationUserRol.GUEST.name());
-        http.authorizeRequests().antMatchers(GET,"/moviles/*").hasRole(ApplicationUserRol.ADMIN.name());
         http.addFilter(new CustomAuthenticationFilter(authenticationManagerBean()));
         http.addFilterBefore(new CustomAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
