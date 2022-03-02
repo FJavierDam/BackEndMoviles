@@ -68,4 +68,8 @@ public class AppUserService {
         return users.stream().filter((a)->a.getUsername().equals(username)).findFirst();
 
     }
+    
+    public void addUserToList(AppUser appUser) {
+        this.getUsers().add(appUser);
+    }
 }
